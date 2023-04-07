@@ -16,6 +16,7 @@ if [ ! -f "$NAME" ]; then
 fi
 g++ make_test.cpp -o make_test
 
+
 echo  "\n#################### default test ####################"
 for num in {1..2}
 do
@@ -36,14 +37,14 @@ echo "\n#################### test ${TEST_NUM} cases ####################\n"
 echo "excute your ${NAME}"
 for num in {1..${TEST_NUM}}
 do
-	for i in {1..${num}..5}
+	for i in {1..${num}}
 	do
-		echo -ne '#####'
+		echo -ne '#'
 	done
 
-	for i in {${num}..100..5}
+	for i in {${num}..100}
 	do
-		echo -ne '     '
+		echo -ne ' '
 	done
 	echo -ne "(${num}%)\r"
 
@@ -53,13 +54,13 @@ done
 echo "\nexcute validator"
 for num in {1..${TEST_NUM}}
 do
-	for i in {1..${num}..5}
+	for i in {1..${num}}
 	do
-		echo -ne '#####'
+		echo -ne '#'
 	done
-	for i in {${num}..100..5}
+	for i in {${num}..100}
 	do
-		echo -ne '     '
+		echo -ne ' '
 	done
 	echo -ne "(${num}%)\r"
 
@@ -69,13 +70,13 @@ done
 echo "\ncheck your result"
 for num in {1..${TEST_NUM}}
 do
-	for i in {1..${num}..5}
+	for i in {1..${num}}
 	do
-		echo -ne '#####'
+		echo -ne '#'
 	done
-	for i in {${num}..100..5}
+	for i in {${num}..100}
 	do
-		echo -ne '     '
+		echo -ne ' '
 	done
 	echo -ne "(${num}%)\r"
 
