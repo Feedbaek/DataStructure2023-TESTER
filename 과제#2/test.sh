@@ -8,14 +8,45 @@ TEST_NUM=100
 mkdir myInput/
 mkdir myOutput/
 
+echo "
+=================================================================================================================================
+
+  :::::::::::       ::::::::::       ::::::::   :::::::::::       ::::::::::       :::::::::
+     :+:           :+:             :+:    :+:      :+:           :+:              :+:    :+:
+    +:+           +:+             +:+             +:+           +:+              +:+    +:+
+   +#+           +#++:++#        +#++:++#++      +#+           +#++:++#         +#++:++#:
+  +#+           +#+                    +#+      +#+           +#+              +#+    +#+
+ #+#           #+#             #+#    #+#      #+#           #+#              #+#    #+#
+###           ##########       ########       ###           ##########       ###    ###
+
+      ::::::::::       ::::::::       :::::::::
+     :+:             :+:    :+:      :+:    :+:
+    +:+             +:+    +:+      +:+    +:+
+   :#::+::#        +#+    +:+      +#++:++#:
+  +#+             +#+    +#+      +#+    +#+
+ #+#             #+#    #+#      #+#    #+#
+###              ########       ###    ###
+
+      :::        :::::::::::       :::    :::       ::::::::::        :::        :::::::::::       ::::::::       ::::    :::
+     :+:            :+:           :+:   :+:        :+:               :+:            :+:          :+:    :+:      :+:+:   :+:
+    +:+            +:+           +:+  +:+         +:+               +:+            +:+          +:+    +:+      :+:+:+  +:+
+   +#+            +#+           +#++:++          +#++:++#          +#+            +#+          +#+    +:+      +#+ +:+ +#+
+  +#+            +#+           +#+  +#+         +#+               +#+            +#+          +#+    +#+      +#+  +#+#+#
+ #+#            #+#           #+#   #+#        #+#               #+#            #+#          #+#    #+#      #+#   #+#+#
+########## ###########       ###    ###       ##########        ########## ###########       ########       ###    ####
+
+=================================================================================================================================
+- made by 김민석
+"
+
 echo  "\n#################### compile ####################\n"
 g++ ${NAME}.cpp -o ${NAME}
 if [ ! -f "$NAME" ]; then
 	echo "[Error] $NAME.cpp 파일이 없습니다!"
 	exit(128)
 fi
-g++ make_test.cpp -o make_test
 
+g++ make_test.cpp -o make_test
 
 echo  "\n#################### default test ####################"
 for num in {1..2}
@@ -37,6 +68,7 @@ echo "\n#################### test ${TEST_NUM} cases ####################\n"
 echo "excute your ${NAME}"
 for num in {1..${TEST_NUM}}
 do
+	echo -ne '['
 	for i in {1..${num}}
 	do
 		echo -ne '#'
@@ -46,7 +78,7 @@ do
 	do
 		echo -ne ' '
 	done
-	echo -ne "(${num}%)\r"
+	echo -ne "(${num}%)]\r"
 
 	./${NAME} < ./myInput/myInput${num}.txt >> ./myOutput/${NAME}_log${num}.txt
 done
@@ -54,6 +86,7 @@ done
 echo "\nexcute validator"
 for num in {1..${TEST_NUM}}
 do
+	echo -ne '['
 	for i in {1..${num}}
 	do
 		echo -ne '#'
@@ -62,7 +95,7 @@ do
 	do
 		echo -ne ' '
 	done
-	echo -ne "(${num}%)\r"
+	echo -ne "(${num}%)]\r"
 
 	./validator < ./myInput/myInput${num}.txt >> ./myOutput/validator_log${num}.txt
 done
@@ -70,6 +103,7 @@ done
 echo "\ncheck your result"
 for num in {1..${TEST_NUM}}
 do
+	echo -ne '['
 	for i in {1..${num}}
 	do
 		echo -ne '#'
@@ -78,7 +112,7 @@ do
 	do
 		echo -ne ' '
 	done
-	echo -ne "(${num}%)\r"
+	echo -ne "(${num}%)]\r"
 
 	echo "<<= ${num} =>>" >> ./diff_log.txt
 	diff ./myOutput/${NAME}_log${num}.txt ./myOutput/validator_log${num}.txt >> ./diff_log.txt
