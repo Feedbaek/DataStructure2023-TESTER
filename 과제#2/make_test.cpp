@@ -31,7 +31,7 @@ int main(int argc, char** argv) {
 			l = (rng() % EASY) + 1;
 		}
 		else {
-			s = HARD;
+			s = (rng() % HARD) + 1;
 			l = (rng() % 100000) + 1;
 		}
 
