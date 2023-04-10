@@ -3,4 +3,4 @@
 NAME="seq"
 
 rm ${NAME} make_test diff_log.txt
-rm -rf ./myinput/ ./myoutput/
+rm -rf ./myInput/ ./myOutput/
