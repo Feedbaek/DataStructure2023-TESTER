@@ -58,7 +58,7 @@ int main(int argc, char** argv) {
 	mt19937 rng(rd());
 
 	for (int i=1; i<=case_num; ++i) {
-		string txt = "./myinput/myinput" + to_string(i) + ".txt";
+		string txt = "./myInput/myInput" + to_string(i) + ".txt";
 		FILE *fp = fopen(txt.c_str(), "w");
 
 		if (i <= case_num / 5) {
