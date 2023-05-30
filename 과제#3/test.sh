@@ -49,7 +49,6 @@ if [ ! -f "$NAME" ]; then
 fi
 
 ${COMPILE} make_test.cpp -o make_test
-${COMPILE} validator.cpp -o validator
 
 echo  "\n#################### default test ####################"
 for num in {1..${DEFAULT_TEST_NUM}}
